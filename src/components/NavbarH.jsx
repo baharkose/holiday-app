@@ -12,6 +12,7 @@ const NavbarH = ({
   setSearchInput,
   handleClick,
   handleDonem,
+  handleSeasonName,
 }) => {
   return (
     <>
@@ -25,7 +26,11 @@ const NavbarH = ({
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <NavDropdown title="Yaz Dönemi" id="navbarScrollingDropdown">
+              <NavDropdown
+                title="Yaz Dönemi"
+                id="yaz"
+                onClick={(e) => handleSeasonName(e, console.log(e))}
+              >
                 <NavDropdown.Item
                   href="#action3"
                   name="yurtDisi"
@@ -43,8 +48,10 @@ const NavbarH = ({
               </NavDropdown>
               <NavDropdown
                 title="Kış Dönemi"
+                id="kis"
+                onClick={(e) => handleSeasonName(e, console.log(e))}
                 name="kis"
-                id="navbarScrollingDropdown"
+
                 // onClick={(e) => handleDonem(e)}
               >
                 <NavDropdown.Item
@@ -63,7 +70,8 @@ const NavbarH = ({
               </NavDropdown>
               <NavDropdown
                 title="Ara Dönem"
-                id="navbarScrollingDropdown"
+                id="araDonem"
+                onClick={(e) => handleSeasonName(e, console.log(e))}
                 name="araDonem"
                 // onClick={(e) => handleDonem(e)}
               >
