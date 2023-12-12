@@ -7,8 +7,12 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import holidays from "../helper/data";
 
-const NavbarH = ({ handleSearch , setSearchInput}) => {
-
+const NavbarH = ({
+  handleSearch,
+  setSearchInput,
+  handleClick,
+  handleDonem,
+}) => {
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
@@ -21,21 +25,62 @@ const NavbarH = ({ handleSearch , setSearchInput}) => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="#action1">Home</Nav.Link>
-              <Nav.Link href="#action2">Link</Nav.Link>
-              <NavDropdown title="Link" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Another action
+              <NavDropdown title="Yaz Dönemi" id="navbarScrollingDropdown">
+                <NavDropdown.Item
+                  href="#action3"
+                  name="yurtDisi"
+                  onClick={(e) => handleDonem(e, console.log(e))}
+                >
+                  Yurt Dışı
                 </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">
-                  Something else here
+                <NavDropdown.Item
+                  name="yurtIci"
+                  href="#action4"
+                  onClick={(e) => handleDonem(e, console.log(e))}
+                >
+                  Yurt İçi
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="#" disabled>
-                Link
-              </Nav.Link>
+              <NavDropdown
+                title="Kış Dönemi"
+                name="kis"
+                id="navbarScrollingDropdown"
+                // onClick={(e) => handleDonem(e)}
+              >
+                <NavDropdown.Item
+                  href="#action3"
+                  name="yurtDisi"
+                  onClick={(e) => handleDonem(e, console.log(e))}
+                >
+                  Yurt Dışı
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  name="yurtIci"
+                  onClick={(e) => handleDonem(e, console.log(e))}
+                >
+                  Yurt İçi
+                </NavDropdown.Item>
+              </NavDropdown>
+              <NavDropdown
+                title="Ara Dönem"
+                id="navbarScrollingDropdown"
+                name="araDonem"
+                // onClick={(e) => handleDonem(e)}
+              >
+                <NavDropdown.Item
+                  href="#action3"
+                  name="yurtDisi"
+                  onClick={(e) => handleDonem(e, console.log(e))}
+                >
+                  Yurt Dışı
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  name="yurtIci"
+                  onClick={(e) => handleDonem(e, console.log(e))}
+                >
+                  Yurt İçi
+                </NavDropdown.Item>
+              </NavDropdown>
             </Nav>
             <Form className="d-flex">
               <Form.Control

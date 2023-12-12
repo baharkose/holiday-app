@@ -25,7 +25,7 @@ const Holidays = ({
                 <Card.Text>
                   <span>Süre:</span> {sure}
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="primary">Satın Al</Button>
               </Card.Body>
             </Card>
           )
