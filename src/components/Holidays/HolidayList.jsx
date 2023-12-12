@@ -3,15 +3,10 @@ import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
 function HolidayList({showC, setShowC}) {
- 
-
   const handleClose = () => setShowC(false);
- 
 
   return (
     <>
-    
-
       <Offcanvas show={showC} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Offcanvas</Offcanvas.Title>

@@ -18,12 +18,17 @@ const Home = () => {
 
   //- tetikleme olunca filtereleme başlasın, inputtan gelen verilere göre
   const handleSearch = (e) => {
+    e.preventDefault();
     const value = e.target.value;
+    setSearchInput(value)
     const newList = holidays.filter((item) =>
       item.lokasyon.toLowerCase().includes(searchInput.toLowerCase().trim())
     );
     setFilteredList(newList);
+    console.log(filteredList);
   };
+
+  console.log(filteredList);
 
   //- Döneme göre filtreleme işlemi
   const handleDonem = (e) => {
@@ -63,7 +68,7 @@ const Home = () => {
         selectedHoliday={selectedHoliday}
       />
 
-      <HolidayList/>
+      <HolidayList />
       <FooterH />
     </div>
   );
