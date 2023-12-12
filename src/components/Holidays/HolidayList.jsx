@@ -2,19 +2,17 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
-function HolidayList() {
-  const [show, setShow] = useState(false);
+function HolidayList({showC, setShowC}) {
+ 
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => setShowC(false);
+ 
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch
-      </Button>
+    
 
-      <Offcanvas show={show} onHide={handleClose}>
+      <Offcanvas show={showC} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Offcanvas</Offcanvas.Title>
         </Offcanvas.Header>
