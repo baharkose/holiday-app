@@ -20,7 +20,7 @@ const Home = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     const value = e.target.value;
-    setSearchInput(value)
+    setSearchInput(value);
     const newList = holidays.filter((item) =>
       item.lokasyon.toLowerCase().includes(searchInput.toLowerCase().trim())
     );
@@ -41,12 +41,14 @@ const Home = () => {
   //- sezona göre filtreleme işlemi
   const handleSeasonName = (e) => {
     const newName = e.target.id;
+
+    setSeasonFilter(newName);
     console.log(newName);
     //- öncelikle sezonlara göre filtreleme kalan filtre yurt içi ve yurt dışına pay edildi
     const newSeasonFilter = holidays.filter((item) =>
-      item.sezon.includes(newName)
+      item.sezon.includes(seasonFilter)
     );
-    setSeasonFilter(newSeasonFilter);
+    setFilteredList(newSeasonFilter);
   };
 
   return (

@@ -29,7 +29,7 @@ const NavbarH = ({
               <NavDropdown
                 title="Yaz Dönemi"
                 id="yaz"
-                onClick={(e) => handleSeasonName(e, console.log(e))}
+                onClick={(e) => handleSeasonName(e)}
               >
                 <NavDropdown.Item
                   href="#action3"
