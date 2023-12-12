@@ -4,6 +4,7 @@ import Holidays from "../components/Holidays/Holidays";
 import HolidayForm from "../components/Holidays/HolidayForm";
 import FooterH from "../components/FooterH";
 import holidays from "../helper/data";
+import HolidayList from "../components/Holidays/HolidayList";
 
 const Home = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -61,6 +62,8 @@ const Home = () => {
         setShow={setShow}
         selectedHoliday={selectedHoliday}
       />
+
+      <HolidayList/>
       <FooterH />
     </div>
   );

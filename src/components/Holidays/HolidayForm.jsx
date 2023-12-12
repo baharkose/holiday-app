@@ -26,27 +26,33 @@ const HolidayForm = ({ show, setShow, selectedHoliday }) => {
       {
         <Modal show={show} onHide={handleClose}>
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
-            <Modal.Header closeButton>
-              <Modal.Title>{lokasyon}</Modal.Title>
-            </Modal.Header>
             <Modal.Body>
-              <div>
-                <span className="fw-bold">Tarih:</span> {tarih}
+              <div className="modal-header d-flex flex-column ">
+                <h3 className="pb-2">{lokasyon}</h3>
+                <i>
+                  <div className="information d-flex gap-3 justify-content-center h6">
+                    <div>
+                      <span className="fw-bold">(Tarih:</span> {tarih}
+                    </div>
+                    <div>
+                      <span className="fw-bold">Süre:</span> {sure}
+                    </div>
+                    <div>
+                      <span className="fw-bold">Fiyat:</span> {fiyat})
+                    </div>
+                  </div>
+                </i>
               </div>
-              <div>
-                <span className="fw-bold">Süre:</span> {sure}
-              </div>
-              <div>
-                <span className="fw-bold">Fiyat:</span> {fiyat}
-              </div>
-              <h4 className="mt-3">Kayıt Formu</h4>
+
+              <h4 className="mt-3 pb-2">Kayıt Formu</h4>
+           
               <Row className="mb-3">
                 <Form.Group
                   as={Col}
                   controlId="validationCustom01"
                   className="d-flex w-90 gap-1 align-items-center"
                 >
-                  <Form.Label>Ad:</Form.Label>
+                  <Form.Label className="w-25 fw-bold">Ad:</Form.Label>
                   <Form.Control
                     required
                     type="text"
@@ -62,7 +68,7 @@ const HolidayForm = ({ show, setShow, selectedHoliday }) => {
                   controlId="validationCustom02"
                   className="d-flex w-90 gap-1 align-items-center"
                 >
-                  <Form.Label className="w-20">Soyad:</Form.Label>
+                  <Form.Label className="w-25 fw-bold">Soyad:</Form.Label>
                   <Form.Control
                     required
                     type="text"
@@ -78,7 +84,9 @@ const HolidayForm = ({ show, setShow, selectedHoliday }) => {
                   controlId="validationCustomUsername"
                   className="d-flex w-90 gap-1 align-items-center"
                 >
-                  <Form.Label>E-Posta Adresi</Form.Label>
+                  <Form.Label className="w-25 fw-bold">
+                    E-Posta Adresi
+                  </Form.Label>
                   <InputGroup hasValidation>
                     <Form.Control
                       type="email"
@@ -106,7 +114,7 @@ const HolidayForm = ({ show, setShow, selectedHoliday }) => {
                 Kapat
               </Button>
               <Button type="submit" variant="primary">
-                Değişiklikleri Kaydet
+                Kayıt Ol
               </Button>
             </Modal.Footer>
           </Form>
