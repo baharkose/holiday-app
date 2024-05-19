@@ -8,68 +8,54 @@ import HolidayList from "../components/Holidays/HolidayList";
 
 const Home = () => {
   const [searchInput, setSearchInput] = useState("");
-  const [filteredList, setFilteredList] = useState(holidays); //- koşula göre filtrelenen veriler
-  const [categoryList, setCategoryList] = useState(holidays);
+  const [filteredList, setFilteredList] = useState(holidays);
   const [seasonFilter, setSeasonFilter] = useState(holidays);
-  const [selectedHoliday, setSelectedHoliday] = useState([]); //- veriyi çekeceğin yerde set, alacağın yerde state kullan. satın alma alanına gidecek olan liste
-
-  const handleShow = () => setShow(true); //- Modal
+  const [selectedHoliday, setSelectedHoliday] = useState([]);
   const [show, setShow] = useState(false);
 
-  //- tetikleme olunca filtereleme başlasın, inputtan gelen verilere göre
   const handleSearch = (e) => {
     e.preventDefault();
     const value = e.target.value;
     setSearchInput(value);
     const newList = holidays.filter((item) =>
-      item.lokasyon.toLowerCase().includes(searchInput.toLowerCase().trim())
+      item.lokasyon.toLowerCase().includes(value.toLowerCase().trim())
     );
     setFilteredList(newList);
-    console.log(filteredList);
   };
 
-  console.log(filteredList);
+  const handleSeasonName = (e) => {
+    const seasonName = e.target.id;
+    const newSeasonFilter = holidays.filter((item) =>
+      item.sezon.includes(seasonName)
+    );
+    setSeasonFilter(newSeasonFilter);
+    setFilteredList(newSeasonFilter);
+  };
 
-  //- Döneme göre filtreleme işlemi
   const handleDonem = (e) => {
     const donem = e.currentTarget.name;
-    const newCategory = seasonFilter.filter((item) => item.kategori === donem);
+    const newCategory = holidays.filter((item) => item.kategori === donem);
     setFilteredList(newCategory);
-    console.log(newCategory);
-  };
-
-  //- sezona göre filtreleme işlemi
-  const handleSeasonName = (e) => {
-    const newName = e.target.id;
-
-    setSeasonFilter(newName);
-    console.log(newName);
-    //- öncelikle sezonlara göre filtreleme kalan filtre yurt içi ve yurt dışına pay edildi
-    const newSeasonFilter = holidays.filter((item) =>
-      item.sezon.includes(seasonFilter)
-    );
-    setFilteredList(newSeasonFilter);
   };
 
   return (
     <div>
       <NavbarH
         handleSearch={handleSearch}
-        handleDonem={handleDonem}
         handleSeasonName={handleSeasonName}
+        handleDonem={handleDonem} // Make sure this is correctly passed
       />
       <Holidays
         holidays={holidays}
         filteredList={filteredList}
-        handleShow={handleShow}
+        handleShow={() => setShow(true)}
         setSelectedHoliday={setSelectedHoliday}
       />
-      <HolidayForm //- Modal
+      <HolidayForm
         show={show}
         setShow={setShow}
         selectedHoliday={selectedHoliday}
       />
-
       <HolidayList />
       <FooterH />
     </div>
